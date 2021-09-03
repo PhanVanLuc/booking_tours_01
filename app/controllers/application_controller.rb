@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  before_action :category_menu
   include SessionsHelper
   
   private
@@ -69,5 +70,10 @@ class ApplicationController < ActionController::Base
       if I18n.available_locales.map(&:to_s).include?(parsed_locale)
         parsed_locale.to_sym
       end
-    end   
+    end
+    
+    def category_menu
+      @category_items = Category.where(parent_id: nil)
+    end
+    
 end

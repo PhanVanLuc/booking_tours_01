@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get "/thanks",    to: "static_pages#thanks"
     get "/reviews/food",      to: "static_pages#reviewfood", as: "food"
     get "/reviews/place",      to: "static_pages#reviewplace", as: "place"
+    get "/categories/by_parent",    to: "categories#by_parent"
     get "/signup",    to: "users#new"
     get "/login",     to: "sessions#new"
     get "/success",   to: "checkout#success"

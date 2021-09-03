@@ -23,22 +23,40 @@
             <% end %>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" 
-                                                         aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-sticky-note"></i> 
               <%=t("staticpages.home.reviews")%>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-              <%= link_to place_path(id: 2), class:"dropdown-item" do %>
-                <i class="fas fa-hotel"></i>
-                <%= t("staticpages.home.places") %>
-              <% end %>
-              <%= link_to food_path(id: 1), class:"dropdown-item" do %>
-                <i class="fas fa-utensils"></i>
-                <%= t("staticpages.home.food") %>
-              <% end %>
-            </div>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%@category_items.each do |category_item|%>
+                <%if category_item.child_menu_items.any?%>
+                  <li class="dropdown-submenu">
+                    <%= link_to category_item.category_name, food_path(id: category_item.id), class:"dropdown-item dropdown-toggle"%>
+                    <ul class="dropdown-menu">
+                      <%category_item.child_menu_items.each do |child_item| %>
+                        <%if child_item.child_menu_items.any?%>
+                          <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle" href="#"><%=child_item.category_name%></a>
+                            <ul class="dropdown-menu">
+                              <%child_item.child_menu_items.each do |child_item2| %>
+                                <%= link_to child_item2.category_name, food_path(id: child_item2.id), class:"dropdown-item"%>
+                              <%end%>
+                            </ul>
+                          </li>
+                        <%else%>
+                          <%= link_to child_item.category_name, food_path(id: child_item.id), class:"dropdown-item"%>
+                        <%end%>
+                      <%end%>
+                    </ul>
+                  </li>
+                <%else%>
+                  <li>
+                    <a class="dropdown-item" href="#"><%=category_item.category_name%></a>
+                  </li>
+                <%end%>
+              <%end%>
+            </ul>
           </li>
+          
           <% if logged_in? %>
             <% if current_user.admin? %>
               <li class="nav-item dropdown">

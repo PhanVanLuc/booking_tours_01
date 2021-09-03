@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :load_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:new, :edit]
   def new
     @category = Category.new
   end
@@ -12,13 +13,22 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params) 
+    if (params[:parent_id_2]=="")
+      @category = Category.new(category_params)
+    else
+      @category = Category.new(category_name: category_params[:category_name], 
+                                parent_id: params[:parent_id_2])
+    end
     if @category.save
       flash[:success] = t("category.category.new")
       redirect_to categories_path
     else 
       flash[:success] = t("category.category.fail")
     end
+  end
+
+  def by_parent
+    render json: { categories: Category.where(parent_id: params[:parent_id]) }
   end
 
   def edit
@@ -43,8 +53,13 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:category_name)
+    params.require(:category).permit(:category_name, :parent_id)
   end
+
+  def set_category
+    @categories = Category.all.pluck(:category_name, :id)
+  end
+
   def load_category
     @category = Category.find(params[:id])
   rescue ActiveRecord::RecordNotFound

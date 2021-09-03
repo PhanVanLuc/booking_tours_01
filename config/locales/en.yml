@@ -280,6 +280,7 @@ en:
       delete: "Deleted successfully"
       update: "Updated successfully"
       fail: "Error! An error occurred. Please try again later"
+      select: "Please select"
   chart:
     title1: "Revenues by Month"
     title2: "Revenues by Day"

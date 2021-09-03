@@ -282,6 +282,7 @@ vi:
       delete: "Đã xóa thành công!"
       update: "Đã sửa thành công!"
       fail: "Đã xảy ra lỗi!"
+      select: "Chọn"
   chart:
     title1: "Doanh thu theo tháng"
     title2: "Doanh thu theo ngày"

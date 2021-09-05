@@ -5,6 +5,10 @@ class User < ApplicationRecord
   has_many :like_reviews, dependent: :destroy
   has_many :ratings, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :notifications, class_name: Notification.name,
+                        foreign_key: :receiver_id, dependent: :destroy
+  has_many :send_notifications, class_name: Notification.name,
+                        foreign_key: :sender_id, dependent: :destroy
 
   devise :database_authenticatable,
          :recoverable, :trackable, :omniauthable,

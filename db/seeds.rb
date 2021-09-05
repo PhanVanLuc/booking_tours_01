@@ -1,11 +1,11 @@
 # Create a main sample user.
-User.create!(name: "Kiter",
-             email: "kiter2509@gmail.com",
-             date_of_birth: "02-11-1999",
-             phone_number: "0389845000",
+User.create!(name: "phanvanluc",
+             email: "vanlucbs1997@gmail.com",
+             date_of_birth: "09-07-1997",
+             phone_number: "0762530355",
              address: "Hokkaido, Japan",
-             password: "mypass",
-             password_confirmation: "mypass",
+             password: "123456",
+             password_confirmation: "123456",
              admin: true)
              
 # Generate a bunch of additional users. 

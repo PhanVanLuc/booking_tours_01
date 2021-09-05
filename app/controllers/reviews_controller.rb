@@ -5,9 +5,9 @@ class ReviewsController < ApplicationController
 
   def index
     if current_user.admin?
-      @reviews = Review.page(params[:page])
+      @reviews = Review.page(params[:page]).per(Settings.Paginate.tours_per_page)
     else
-      @reviews = Review.filter(current_user.id).page(params[:page])
+      @reviews = Review.filter(current_user.id).page(params[:page]).per(Settings.Paginate.tours_per_page)
     end
   end
 
@@ -102,6 +102,10 @@ class ReviewsController < ApplicationController
 
     def user_like
       LikeReview.create(review_id:@review.id, user_id:current_user.id)
+      Notification.new(sender_id: current_user.id, 
+                        content: "#{current_user.name} đã like bài #{@review.review_name}", 
+                        receiver_id: @review.user_id,
+                        target_uri: review_path(@review.id)).save
     end
     
     def set_category

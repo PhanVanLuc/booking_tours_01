@@ -4,6 +4,7 @@ require "sidekiq/cron/web"
 
 Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
+  mount ActionCable.server => '/cable'
   
   devise_for :users,
               controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
     get "/reviews/food",      to: "static_pages#reviewfood", as: "food"
     get "/reviews/place",      to: "static_pages#reviewplace", as: "place"
     get "/categories/by_parent",    to: "categories#by_parent"
+    get "/notifications/read",    to: "notifications#read"
     get "/signup",    to: "users#new"
     get "/login",     to: "sessions#new"
     get "/success",   to: "checkout#success"

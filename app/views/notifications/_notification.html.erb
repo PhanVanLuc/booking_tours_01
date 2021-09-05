@@ -1,0 +1,7 @@
+<li>
+  <%# <%= link_to notification.target_uri, class: 'notification' %>
+  <div data-href="<%= notification.target_uri %>" class='notification <%= notification.read_at ? 'text-muted' : 'text-primary' %>' data-id="<%= notification.id %>">
+    <%=notification.content%>
+    <span> <%= notification.created_at.strftime("%d %b. %Y") %></span>
+  </div>
+</li>

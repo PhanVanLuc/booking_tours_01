@@ -60,7 +60,7 @@
           <% if logged_in? %>
             <% if current_user.admin? %>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" 
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown7" role="button" data-toggle="dropdown" 
                                                             aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-tasks"></i>
                   <%= t "admin.shared.manage" %>
@@ -124,6 +124,9 @@
                   <%= t("staticpages.home.logout") %>
                 <% end %>
               </div>
+            </li>
+            <li class="nav-item dropdown">
+              <%= render "notifications/notification_center" %>
             </li>
           <% else %>
             <li class="nav-item">

@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :admin_user, only: [:destroy, :hidden]
   before_action :load_comments, only: [:hidden, :destroy]
   def index
-    @comments = Comment.page(params[:page])
+    @comments = Comment.page(params[:page]).per(Settings.Paginate.tours_per_page)
   end
 
   def new
@@ -27,6 +27,11 @@ class CommentsController < ApplicationController
                                        cmt_content: comment_params[:cmt_content], 
                                        parent_id: comment_params[:parent_id])
     if @comment.save
+      Notification.new(sender_id: current_user.id,
+        content: "#{current_user.name} đã bình luận về bài #{@review.review_name}",
+        receiver_id: @review.user_id,
+        target_uri: review_path(@review.id))
+        .save
       redirect_to review_path(@review.id)
     else
       flash[:danger] = t("review.show.fail")

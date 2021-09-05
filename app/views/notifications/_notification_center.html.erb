@@ -1,0 +1,12 @@
+<style>
+#notification-list{
+  max-height: 200px;
+  overflow-y: scroll;
+}
+</style>
+<div class="nav-item dropdown">
+    <%= render "notifications/counter", counter: current_user.notifications.where(read_At: nil).where.not(sender_id: current_user.id).count %>
+    <ul id="notification-list" class="dropdown-menu px-2" aria-labelledby="navbarDropdown7" style="width:200px">
+      <%= render partial: "notifications/notification", collection: current_user.notifications.where.not(sender_id: current_user.id).order(created_at: :desc).first(10) %>
+    </ul>
+</div>

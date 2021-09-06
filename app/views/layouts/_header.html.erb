@@ -90,6 +90,10 @@
                     <i class="fas fa-poll-h"></i>
                     <%= t("admin.shared.categories") %>
                   <% end %>
+                  <%= link_to tags_path, class:"dropdown-item" do %>
+                    <i class="fas fa-poll-h"></i>
+                    <%= t("admin.shared.tag") %>
+                  <% end %>
                 </div>
               </li>
             <% end %>

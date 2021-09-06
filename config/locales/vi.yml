@@ -141,6 +141,7 @@ vi:
       reviews: "Review"
       categories: "Danh mục"
       comments : "Bình luận"
+      tag: "Tag tìm kiếm"
   staticpages:
     home:
       home: "Trang chủ"
@@ -328,3 +329,16 @@ vi:
       booking: "Tổng số book tour trong tháng"
       review: "Tổng số review trong tháng"
       revenuesbymonth: "Thống kê doanh thu theo tháng"
+  tag:
+    tag:
+      title: "Tag"
+      manage: "Quản lí tag"
+      name: "Tên"
+      action: "Hành động"
+      createbtn: "Thêm"
+      updatebtn: "Sửa"
+      deletebtn: "Xóa"
+      new: "Đã tạo thành công!"
+      delete: "Đã xóa thành công!"
+      update: "Đã sửa thành công!"
+      fail: "Đã xảy ra lỗi!"

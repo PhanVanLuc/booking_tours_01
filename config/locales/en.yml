@@ -141,6 +141,7 @@ en:
       reviews: "Reviews"
       categories: "Categories"
       comments : "Comments"
+      tag: "Search tag"
   staticpages:
     home:
       home: "Home"
@@ -326,3 +327,16 @@ en:
       booking: "Total booking tour for the month"
       review: "Total reviews in the month"
       revenuesbymonth: "Monthly revenue statistics"
+  tag:
+    tag:
+      title: "Tag"
+      name: "Name"
+      action: "Action"
+      manage: "Manage Tags"
+      createbtn: "Create"
+      updatebtn: "Update"
+      deletebtn: "Delete"
+      new: "Created successfully"
+      delete: "Deleted successfully"
+      update: "Updated successfully"
+      fail: "Error! An error occurred. Please try again later"

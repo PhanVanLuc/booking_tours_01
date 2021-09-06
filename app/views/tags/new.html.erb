@@ -1,0 +1,8 @@
+<% provide(:title, t("tag.tag.createbtn")) %>
+<% provide(:button_label, t("tag.tag.createbtn")) %>
+<%= form_with(model: @tag, local: true) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>   
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>  
+  <%= f.submit yield(:button_label), class: "btn btn-primary mt-4" %>
+<% end %>

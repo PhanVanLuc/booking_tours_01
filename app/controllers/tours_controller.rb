@@ -1,7 +1,8 @@
 class ToursController < ApplicationController
   before_action :load_tour, only: [:show, :update, :destroy, :edit]
   before_action :admin_user, only: [:destroy, :create, :edit, :update]
-  
+  before_action :load_tag, only: [:index, :searchtag]
+  before_action :set_tag, only:[:edit, :new, :create, :update]
   def index
     tours_index_helper
   end
@@ -53,6 +54,11 @@ class ToursController < ApplicationController
     redirect_to admin_tours_path
   end
 
+  def searchtag
+    @tours=Tour.where(tag: params[:id] ).page(params[:page]).per(Settings.Paginate.tours_per_page)
+    StatisticTag.new(tag_id:params[:id]).save
+  end
+
   private
     # Find a tour
     def load_tour
@@ -63,6 +69,10 @@ class ToursController < ApplicationController
     end
 
     def tour_params
-      params.require(:tour).permit(:tour_name, :description, :status, :tour_amount, :time, :price, images: [])
+      params.require(:tour).permit(:tour_name, :description, :status, :tour_amount, :time, :price, :tag,images: [])
+    end
+
+    def set_tag
+      @tags = Tag.all.pluck(:name, :id)
     end
 end

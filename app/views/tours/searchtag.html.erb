@@ -10,13 +10,13 @@
           <%= form_with url: tours_path, method: :get do |f| %>
             <div class="form-row">
               <div class="col">
-                <%= f.text_field :term, value: params[:term], class: "form-control", placeholder: t("tour.index.placeholder") %>
+                <%= f.text_field :term, class: "form-control", placeholder: "Tour Đà Nẵng..." %>
               </div>
               <%= f.submit t("staticpages.home.search"), name: nil, class: "btn btn-danger" %>
             </div>
             <div class="row mt-2 ml-2 d-flex justify-content-center">
             <%@tags.each do |tag| %>
-              <%= link_to tag.name, searchtag_path(id:tag.id), class:"btn btn-outline-secondary"%>
+              <%= link_to tag.name, searchtag_path(id: tag.id), class:"btn btn-outline-secondary"%>
             <% end %>
           </div>
           <% end %>

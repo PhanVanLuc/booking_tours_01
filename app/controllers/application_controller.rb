@@ -71,9 +71,16 @@ class ApplicationController < ActionController::Base
         parsed_locale.to_sym
       end
     end
+<<<<<<< HEAD
     
     def category_menu
       @category_items = Category.where(parent_id: nil)
     end
     
+=======
+     
+    def load_tag
+      @tags=Tag.all
+    end
+>>>>>>> 63571f3 (manage tags)
 end

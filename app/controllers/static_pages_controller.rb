@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   before_action :load_review_category, only: [:reviewfood, :reviewplace]
-
+  before_action :load_tag, only: :home
   def home
     @newtours = Tour.last(3)
     @populartours = Tour.first(6)

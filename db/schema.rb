@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_094108) do
+ActiveRecord::Schema.define(version: 2021_09_06_171823) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -84,6 +84,16 @@ ActiveRecord::Schema.define(version: 2021_09_03_094108) do
     t.index ["review_id", "user_id"], name: "index_like_reviews_on_review_id_and_user_id", unique: true
     t.index ["review_id"], name: "index_like_reviews_on_review_id"
     t.index ["user_id"], name: "index_like_reviews_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "sender_id"
+    t.string "content"
+    t.integer "receiver_id"
+    t.string "target_uri"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "read_at"
   end
 
   create_table "ratings", force: :cascade do |t|

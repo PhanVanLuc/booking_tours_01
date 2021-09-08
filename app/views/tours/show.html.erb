@@ -5,7 +5,8 @@
       <%= render 'tours/tour_detail' %>
       <div class="ml-4">
         <span class="font-weight-bold"><%=t("tour.show.average")%></span>
-        <span id="avg"><%= "%.1f" % @avg %></span>
+        <span id="avg" type="hidden"></span>
+        <span><%="%.1f" % @tour.start%></span>
         <span><i class="fa fa-star text-warning"></i></span> 
       </div>
       <div class="ml-4">

@@ -1,15 +1,20 @@
 <% provide(:title, t("category.category.createbtn")) %>
 <% provide(:button_label, t("category.category.createbtn")) %>
-<%= form_with(model: @category, local: true) do |f| %>
+<div class="row d-flex justify-content-center">
+  <h3>Thêm Danh mục</h3>
+</div>
+<%= form_with(model: @category, local: true, class:"container") do |f| %>
   <%= render "shared/error_messages", object: f.object %>   
-  <%= f.label :category_name %>
+  <%= f.label :category_name, "Tên Danh mục" %>
   <%= f.text_field :category_name, class: "form-control" %>
-  <%= f.label :parent_id %>
-  <%= f.select :parent_id, options_for_select(@categories, @category.parent_id), { :prompt => t("category.category.select") }, {class: "form-control"}%>
+  <%= f.label :parent_id, "Danh mục cha"%>
+  <div class="row ml-0">
+  <%= f.select :parent_id, options_for_select(@categories, @category.parent_id), { :prompt => t("category.category.select") }, {class: "form-control col-lg-4"}%>
 
-  <select id="parent_2" name="parent_id_2" class="form-control">
+  <select id="parent_2" name="parent_id_2" class="form-control col-lg-4">
     <option value=""><%=t("category.category.select")%></option>
   </select>
+  </div>
   
   <%= f.submit yield(:button_label), class: "btn btn-primary mt-4" %>
 <% end %>

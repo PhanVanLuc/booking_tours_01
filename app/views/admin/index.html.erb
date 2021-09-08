@@ -1,13 +1,13 @@
 <% provide(:title, t("tour.shared.manage")) %>
-<div class="container-fuild">
+<div class="container-fuild bg-white">
   <div class="d-flex justify-content-center text-center">
     <h1><%= t("tour.shared.manage") %></h1>
   </div>
 
-  <div class="row d-flex justify-content-between">
+  <div class="row  bg-white">
     <div class="ml-4">
       <%= form_with url: admin_tours_path, method: :get do |f| %>
-        <div class="form-row d-flex justify-content-center align-items-center pt-3">
+        <div class="form-row d-flex justify-content-center align-items-center pt-3 ">
           <div class="col-auto">
             <p class="lead"><%= t "global.search" %> </p>
           </div>
@@ -27,13 +27,13 @@
     </div>
   </div>
 
-  <div class="d-flex justify-content-end mb-2">
+  <div class="d-flex justify-content-end mb-2 mr-2">
     <%= link_to t("tour.new.new"), new_tour_path, target: "_blank", class: "btn btn-lg btn-primary" %>
   </div>
 
   <div class="d-flex justify-content-center align-items-center">
-    <div class="table-responsive">
-      <table class="table table-hover table-bordered table-success">
+    <div class="table-responsive col-lg-11">
+      <table class="table table-hover table-bordered">
         <thead>
           <tr>
             <th>#</th>

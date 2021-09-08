@@ -3,7 +3,7 @@ total_money:
   class: "TotalMoney"
   queue: "default"
 calculate_rating:
-  cron: "* */6 * * *"
+  cron: "*/2 * * * *"
   class: "CalculateRating"
   queue: "default"
 statistic_report:

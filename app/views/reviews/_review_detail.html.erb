@@ -27,6 +27,15 @@
       <span><%= @review.like_reviews.count %><span>
       <span><%=t("review.show.countlike")%></span>
       <%if logged_in?%>
+        <% if logged_in? %>
+          <%if @review.liked?(current_user)%>
+            <%=link_to t("review.show.dislike"), like_review_path(@review), method:"put", class: 'btn btn-secondary' %>
+          <%else%>
+            <%=link_to t("review.show.like"), like_review_path(@review), method:"put", class: 'btn btn-primary' %>
+          <%end%>
+        <%else%>
+          <%=link_to t("review.show.like"), like_review_path(@review), method:"put", class: 'btn btn-primary' %>
+        <%end%>
         <%if (current_user.admin?||@review.user_id==current_user.id)%>
           <%= link_to t("review.edit.update"), edit_review_path(@review.id), {class:"btn btn-danger"} %>
           <%= link_to t("review.edit.delete"), @review, method: :delete, data: { confirm: "You sure?" } ,class:"btn btn-danger"%>

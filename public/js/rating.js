@@ -17,7 +17,7 @@ function rate(tourId, stars) {
         return;
       }
       const { avg, stars } = data;
-      document.querySelector("#avg").innerHTML = avg;
+      
       document.querySelectorAll(".rate").forEach((elm) => {
         if (+elm.dataset.stars <= stars) 
           {elm.classList.add("text-warning");}

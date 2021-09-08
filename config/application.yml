@@ -1,3 +1,6 @@
 GMAIL_USERNAME: "lucphanvan97@gmail.com"
 GMAIL_PASSWORD: "mrxiwoihiylnmcto"
 HOST: "localhost:3000"
+PUBLIC_KEY: "pk_test_51JKbbsBiAJ9jAOKRyfgNcacVkqHkJ5GssR0UvHZeQ7U4j6EIAXV8fET8CQ6ypOszf4mgccl0iHoALx6JPDtb3YCk00eE04jbZH"
+PRIVATE_KEY: "sk_test_51JKbbsBiAJ9jAOKRyzooMHI8a8F1mZoHbkUoSsG6kh840rUxzS3nVR2lTyWf1LJcjpgQun5gv72R8gwML5fvXg6O00dt7hpxqZ"
+WEBHOOKS: "whsec_JtfcKklsMqqbP6Whp1F9H141xf2vwv8W"

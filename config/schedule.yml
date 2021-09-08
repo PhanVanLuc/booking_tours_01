@@ -1,5 +1,5 @@
 total_money:
-  cron: "* * */1 * *"
+  cron: "* */6 * * *"
   class: "TotalMoney"
   queue: "default"
 calculate_rating:
@@ -7,7 +7,7 @@ calculate_rating:
   class: "CalculateRating"
   queue: "default"
 statistic_report:
-  cron: "* * */1 * *"
+  cron: "* */6 * * *"
   class: "StatisticReport"
   queue: "default"
 

@@ -1,5 +1,5 @@
 Sidekiq.configure_server do |config|
-  config.redis = { url: "redis://localhost:6379/0" }
+  config.redis = { url: ENV['REDIS_URL'], network_timeout: 5 }
 
   schedule_file = "config/schedule.yml"
   if File.exist?(schedule_file)
@@ -8,5 +8,5 @@ Sidekiq.configure_server do |config|
 end
 
 Sidekiq.configure_client do |config|
-  config.redis = { url: "redis://localhost:6379/0" }
+  config.redis = { url: ENV['REDIS_URL'], network_timeout: 5 }
 end
